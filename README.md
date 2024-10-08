@@ -21,7 +21,7 @@
 
 #### Important folder names and level
 - **artefacts**: automatically generated. holds your artefacts (files, model.pkl). Top-level
-- **log**: automatically generated for logging as usual.
+- **log**: automatically generated for logging as usual.NOTE this is in the .ignore file and can't show on github
 - **evaluate**: automatically generated: results produced during your run
 - **notebook**: contains two notebooks that show the experiment and options explored. Top level
 
