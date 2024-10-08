@@ -1,7 +1,7 @@
 ## Loan performance prediction
 ### predicts future loan performance. Disclaimer: This is a mini-project end-to-end project and should be optimized before production.
 
-###### _To test, please install the requiremnts.txt file (e.g., pip install -r requirements.txt). advisable to create a virtual environment first_
+###### _To test, first ensure you have python > 3.10. Please install the requiremnts.txt file (e.g., pip install -r requirements.txt). advisable to create a virtual environment first_
 
 #### Objective
 - A model that can be used to predict future loan performance and set interest rate 
