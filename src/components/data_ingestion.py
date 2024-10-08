@@ -44,7 +44,8 @@ class DataIngestion:
 
             return(
                 self.ingestion_config.train_data_path,
-                self.ingestion_config.test_data_path
+                self.ingestion_config.test_data_path,
+                self.ingestion_config.payment_data_path
             )
 
         except Exception as e:
@@ -63,7 +64,7 @@ class DataIngestion:
             # will drop laon_ID after using it for computing a new feature
             numerica_feature =[
                 'loan_id','principal', 'total_owing_at_issue','application_number',
-                'applying_for_loan_number','loan_number', 'employee_count', 'paid_late', 
+                'applying_for_loan_number','loan_number', 'employee_count', 
                 'total_recovered_on_time','total_recovered_15_dpd', 'cash_yield_15_dpd'
                 ]
             
@@ -122,7 +123,7 @@ class DataIngestion:
      
      
      # Feature Engineering
-    def feature_engineer(self, df, train_payment_df):
+    def feature_engineer(self, df, train_payment_df)->pd.DataFrame:
         ''' 
         This function engineers a feature based on repayment duration (in day)
         '''
@@ -157,16 +158,18 @@ class DataIngestion:
     
     
     # Use the computed average in combination with Business Knowledge to decide the Target
-    def make_train_Target(self, df):
+    def make_train_Target(self, df)->pd.DataFrame:
         '''
         Make Targets values: Default = 1, Not = 0
         '''
         try:
+            print("Data frame head", df.info())
             logging.info("Making Target Started")
+         
             df['Target'] = np.where(
-                ((df['paid_late'] == True) | (df['cash_yield_15_dpd'] < 0) 
-                | (df['total_recovered_on_time'] < df['total_recovered_15_dpd'])) , 1,0)
-            logging.info("Making Target Started")
+                ((df['paid_late'] == True) | (df['cash_yield_15_dpd'] < 0)) 
+                | (df['total_recovered_on_time'] < df['total_recovered_15_dpd']) , 1,0)
+            logging.info("Making Target completed")
             return df
         except Exception as e:
             raise CustomException(e, sys)
@@ -175,4 +178,4 @@ class DataIngestion:
 
 if __name__=="__main__":
     obj=DataIngestion()
-    obj.data_transformer_ingest()
+    dataInobj = obj.data_transformer_ingest()

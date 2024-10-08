@@ -53,6 +53,7 @@ def object_to_category(df):
     '''
     try:
         df = df.apply(lambda col: col.astype('category') if col.dtypes == 'object' else col)
+        return df
     except Exception as e:
         raise CustomException(e,sys)
 
