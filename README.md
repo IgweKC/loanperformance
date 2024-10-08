@@ -1,7 +1,9 @@
 ## Loan performance prediction
 ### predicts future loan performance. Disclaimer: This is a mini-project end-to-end project and should be optimized before production.
 
-###### _To test, first ensure you have python > 3.10. Please install the requiremnts.txt file (e.g., pip install -r requirements.txt). advisable to create a virtual environment first_
+#### Usage
+- _First ensure you have python > 3.10. Please install the requiremnts.txt file (e.g., pip install -r requirements.txt). advisable to create a virtual environment first_
+- _to test the program, run the setup.py. Alternatively, run python src/main.py from the cmd_
 
 #### Objective
 - A model that can be used to predict future loan performance and set interest rate 
@@ -18,10 +20,10 @@
 - Evaluation
 
 #### Important folder names and level
-artefacts: automatically generated. holds your artefacts (files, model.pkl). Top-level
-notebook: contains two notebooks that show the experiment and options explored. Top level
-log: automatically generated for logging as usual.
-evaluate: automatically generated: results produced during your run
+- **artefacts**: automatically generated. holds your artefacts (files, model.pkl). Top-level
+- **log**: automatically generated for logging as usual.
+- **evaluate**: automatically generated: results produced during your run
+- **notebook**: contains two notebooks that show the experiment and options explored. Top level
 
 _have fun_
 
