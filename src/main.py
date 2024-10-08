@@ -27,7 +27,9 @@ def test_main():
         # initiate them in sequence
         data_ingestion_obj.data_transformer_ingest()
         model_trainer_obj.initiate_model_trainer()
-                
+
+        
+        print("Beging Eval")
         logging.info("ML for loan performance Completed")
     except Exception as e:
        raise CustomException(e,sys)

@@ -90,7 +90,7 @@ class DataIngestion:
             os.makedirs(os.path.dirname(self.ingestion_config.test_data_path), exist_ok=True)
             os.makedirs(os.path.dirname(self.ingestion_config.payment_data_path), exist_ok=True)
             
-            
+            train_df = train_df[train_df['approval_status'] == 'Approved']
             train_df= object_to_category(train_df)
             test_df= object_to_category(test_df)
 
@@ -163,7 +163,6 @@ class DataIngestion:
         Make Targets values: Default = 1, Not = 0
         '''
         try:
-            print("Data frame head", df.info())
             logging.info("Making Target Started")
          
             df['Target'] = np.where(
@@ -175,7 +174,3 @@ class DataIngestion:
             raise CustomException(e, sys)
             
     
-
-if __name__=="__main__":
-    obj=DataIngestion()
-    dataInobj = obj.data_transformer_ingest()
