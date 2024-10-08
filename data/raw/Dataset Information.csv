@@ -1,0 +1,30 @@
+Table 1,,
+S/N,Features,Explaination
+1,loan_id                  ,Loan Identity
+2, business_id              ,Customer business ID (integer)
+3, credit_officer_id        , Identifier for the ABC member of staff responsible for approving (and collecting on) the loan                                                                      
+4, acquisition_channel      , The channel through which the customer first came to ABC                                                                                                          
+5, sector                   ," The type of business the customer has - Clinic, or Beauty & Fashion for instance                                                                                      "
+6, principal                ," If the loan was approved, this is the amount (in UGX) that was disbursed. If the loan wasn't approved, this is the amount that the CRO evaluated.                     "
+7, total_owing_at_issue     ," The amount of money the customer was required to pay back when the loan was disbursed. It includes the principal, fees, and interest but does NOT include any penalties. "
+8, application_number       , Running count of how many times the customer has submitted a loan application.                                                                                        
+9, applying_for_loan_number ," The `loan_number` that the customer is applying for. There can be many loans for the same customer with the same value since a customer can be declined, and re-apply. "
+10, employee_count           , The customer-reported number of employees working for the customer.                                                                                                   
+11, loan_number              , Running count of how many loans the customer has taken up to and including the current loan. Null if the loan has not been approved.                                   
+12, approval_status          ," Status used to determine whether or not a loan was disbursed. If not, it provides the reason.                                                                         "
+13, dismissal_description    , The reason for the loan being declined or cancelled.                                                                                                                 
+14, payment_status           ," The status of the loan (Current: loan is outstanding and before due date, Arrears: outstanding after the due date).                                                   "
+15, paid_late                ," Boolean indicating if the loan was paid back late. If true, the loan was paid back late.                                                                              "
+16, total_recovered_on_time  , Sum of all payments made before the due date. NULL until the due date has passed.                                                                                      
+17, total_recovered_15_dpd   , Sum of all payments made within 15 days after the due date. NULL until 15 days after the due date.                                                                    
+18, cash_yield_15_dpd        ," Sum of all payments received from the customer by 15 days past the due date, less the principal disbursed. A measure of the gross profit or loss from the loan.        "
+,,
+Table 2,,
+S/N,Features,Explaination
+1, Column Name       , Description                                                                                         
+2, loan_id           ,Loan Identity
+3, paid_at           , Timestamp of when the payment was made.                                                             
+4, amount            , Value of the payment.                                                                               
+5, transaction_type  ," 'Deposit' for a customer payment, `Discount` for a bonus or other discount provided by ABC. Both count equally towards paying off a loan. "
+,,
+color code,,"available after the loan has been approved (or declined). The information is missing, null or in an intermediary step before then"

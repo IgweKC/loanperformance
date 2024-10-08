@@ -1,0 +1,26 @@
+# Basic
+pandas
+numpy
+seaborn
+hyperopt
+ipywidgets
+matplotlib
+mlflow
+ray[air]
+scikit-learn
+torch
+optbinning
+lightgbm
+utils
+
+# Notebook
+jupyterlab
+lime
+
+# Documentation
+mkdocs
+mkdocstrings
+mkdocstrings[python]
+
+# to auto run setup.py
+-e .
